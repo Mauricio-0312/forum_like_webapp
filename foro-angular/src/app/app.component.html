@@ -1,0 +1,59 @@
+<div class="container mt-3">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Ng-foro</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink]="['/home']">Inicio <span class="sr-only">(current)</span></a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/topics']">Ver Temas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/users']">Compañeros</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/panel/add']" *ngIf="identity">Crear temas</a>
+        </li>
+        <form class="form-inline my-2 my-lg-0" #searchForm="ngForm">
+          <input class="form-control mr-sm-2" type="search" name="busqueda" #busqueda="ngModel" [(ngModel)]="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="goSearch()">Search</button>
+        </form>
+      </ul>
+      <div class="float-right">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link"[routerLink]="['/login']" *ngIf="!identity">Log in</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/register']" *ngIf="!identity">Registrate</a>
+          </li>
+          <img src="{{url+'avatar/' + identity.image}}" class="profile-image" *ngIf="identity && identity.image" alt="">
+          <img src="/assets/profile-image.png" class="profile-image" *ngIf="identity && !identity.image"  alt="">
+
+          <li class="nav-item dropdown" *ngIf="identity">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {{identity.name+" "+identity.surname}}
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item"  [routerLink]="['/panel']">Panel de usuario</a>
+              <a class="dropdown-item"  [routerLink]="['/profile', identity._id]">Mi perfil</a>
+              <a class="dropdown-item" [routerLink]="['/user/update']">Ajustes</a>
+              <a class="dropdown-item" (click)="logout()">Cerrar sesion</a>
+            </div>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <router-outlet></router-outlet>
+</div>

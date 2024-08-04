@@ -1,0 +1,49 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# compiled output
+/foro-angular/dist
+/foro-angular/tmp
+/foro-angular/out-tsc
+# Only exists if Bazel was run
+/foro-angular/bazel-out
+
+# dependencies
+/foro-angular/node_modules
+
+# profiling files
+/foro-angular/chrome-profiler-events*.json
+/foro-angular/speed-measure-plugin*.json
+
+# IDEs and editors
+/foro-angular/.idea
+/foro-angular/.project
+/foro-angular/.classpath
+/foro-angular/.c9/
+/foro-angular/*.launch
+/foro-angular/.settings/
+/foro-angular/*.sublime-workspace
+
+# IDE - VSCode
+/foro-angular/.vscode/*
+/foro-angular/!.vscode/settings.json
+/foro-angular/!.vscode/tasks.json
+/foro-angular/!.vscode/launch.json
+/foro-angular/!.vscode/extensions.json
+/foro-angular/.history/*
+
+# misc
+/foro-angular/.sass-cache
+/foro-angular/connect.lock
+/foro-angular/coverage
+/foro-angular/libpeerconnection.log
+/foro-angular/npm-debug.log
+/foro-angular/yarn-error.log
+/foro-angular/testem.log
+/foro-angular/typings
+
+# System Files
+/foro-angular/.DS_Store
+/foro-angular/Thumbs.db
+
+
+/api-rest-node/node_modules

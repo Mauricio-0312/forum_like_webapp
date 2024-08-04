@@ -1,0 +1,24 @@
+<h2>Usuarios</h2>
+<div *ngIf="!users">
+    <img src="/assets/loader.gif" class="loader" alt="">
+</div>
+<ul class="list-group">
+    <li class="list-group-item" *ngFor="let user of users">
+        <div *ngIf="user.image" class="float-left mr-3">
+            <img src="{{url+'avatar/' + user.image}}" class="profile-image-list"   alt="">
+
+        </div>
+
+        <div *ngIf="!user.image" class="float-left mr-3">
+            <img src="/assets/profile-image.png" class="profile-image-list"   alt="">
+
+        </div>
+        <div class="float-left">
+            <h4>{{user.name +" "+ user.surname}}</h4>
+
+            <a [routerLink]="['/profile', user._id]" class="btn btn-success float-left d-block">Ver</a>
+        </div>
+       
+    </li>
+   
+</ul>

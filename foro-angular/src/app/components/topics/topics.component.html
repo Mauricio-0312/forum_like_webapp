@@ -1,0 +1,31 @@
+<h2 *ngIf="!search">Temas</h2>
+<h2 *ngIf="search">Buscar: {{search_param}}</h2>
+
+<div *ngIf="!topics">
+    <img src="/assets/loader.gif" class="loader" alt="">
+</div>
+<div *ngIf="topics">
+    <ul class="list-group">
+        <li class="list-group-item" *ngFor="let topic of topics">
+            <a [routerLink]="['/topic', topic._id]" class="text-dark">
+                <h3>{{topic.title}}</h3>
+            </a>
+            <span class="badge badge-info p-2">
+                {{topic.user.name +" "+ topic.user.surname}}
+            </span>
+            <span class="badge badge-light p-2 ml-2">
+                {{topic.date | amLocale: "es" | amTimeAgo}}
+            </span>
+
+            <a [routerLink]="['/topic', topic._id]" class="btn btn-success float-right d-block">Leer</a>
+        </li>
+    
+    </ul>
+
+    <ul class="pagination my-3" *ngIf="!search">
+        <li class="page-item"><a class="page-link" [routerLink]="['/topics', prev_page]">Previous</a></li>
+        <li class="page-item" *ngFor="let page of array_pages"><a class="page-link" [routerLink]="['/topics', page]">{{page}}</a></li>
+
+        <li class="page-item"><a class="page-link" [routerLink]="['/topics', next_page]">Next</a></li>
+    </ul>
+</div>

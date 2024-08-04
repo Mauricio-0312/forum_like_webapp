@@ -1,0 +1,17 @@
+.profile-image{
+    width: 35px;
+    height: 35px;
+    border-radius: 999px;
+}
+
+.profile-image-list{
+    width: 55px;
+    height: 55px;
+    border-radius: 999px;
+}
+
+.loader{
+    display: block; 
+    margin: 0px auto; 
+    margin-top: 50px;  
+}
